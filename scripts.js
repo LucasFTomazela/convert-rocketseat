@@ -9,6 +9,7 @@ const amount = document.getElementById("amount")
 const currency = document.getElementById("currency")
 const footer = document.querySelector("main footer")
 const description = document.getElementById("description")
+const result = document.getElementById("result")
 
 // Quero capturar o valor do input conforme a pessoa insere conteúdo
 amount.addEventListener("input", () => {
@@ -40,6 +41,12 @@ function convertCurrency(amount, price, symbol){
   try {
     // Exibindo a cotação da moeda selecionada
     description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
+
+    // Calcula o total.
+    let total = amount * price
+
+    // Exibir o resultado total.
+    result.textContent = total
 
     // Aplica a classe que exibe o footer para mostrar o resultado.
     footer.classList.add("show-result")
